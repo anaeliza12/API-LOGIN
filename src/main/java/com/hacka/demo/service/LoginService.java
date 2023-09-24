@@ -30,4 +30,16 @@ public class LoginService {
 
 	}
 
+	public boolean findLogin(Login login) {
+		boolean verify = false;
+		for (Login l : repository.findAll()) {
+			if (l.getEmail().equalsIgnoreCase(login.getEmail())
+					&& l.getPassword().equalsIgnoreCase(login.getPassword())) {
+				verify = true;
+			}
+		}
+
+		return verify;
+	}
+
 }
