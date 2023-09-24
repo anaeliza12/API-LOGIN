@@ -22,4 +22,12 @@ public class LoginService {
 		return repository.findById(id).get();
 	}
 
+	public boolean insert(Login login) {
+		if (repository.save(login) == null)
+			return false;
+		else
+			return true;
+
+	}
+
 }

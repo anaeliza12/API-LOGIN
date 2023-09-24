@@ -2,6 +2,8 @@ package com.hacka.demo.entities;
 
 import java.util.Objects;
 
+import com.hacka.demo.functionalities.LoginFunctionalities;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +20,8 @@ public class Login {
 	private String email;
 	private String password;
 	private Boolean isLogged;
+	
+	private LoginFunctionalities functionalities;
 
 	public Login() {
 
@@ -79,9 +83,6 @@ public class Login {
 		return Objects.equals(id, other.id);
 	}
 
-	@Override
-	public String toString() {
-		return "Login [id=" + id + ", email=" + email + ", password=" + password + ", isLogged=" + isLogged + "]";
-	}
+
 
 }

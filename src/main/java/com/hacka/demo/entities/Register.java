@@ -2,9 +2,6 @@ package com.hacka.demo.entities;
 
 import java.util.Objects;
 
-import com.hacka.demo.functionalities.LoginFunctionalities;
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

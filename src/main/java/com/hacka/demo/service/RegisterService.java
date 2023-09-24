@@ -20,4 +20,14 @@ public class RegisterService {
 		return repository.findById(id).get();
 	}
 
+	public boolean insert(Register register) {
+		if (repository.save(register) == null)
+			return false;
+		else
+			return true;
+
+	}
+	
+	
+
 }
