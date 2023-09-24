@@ -2,6 +2,9 @@ package com.hacka.demo.entities;
 
 import java.util.Objects;
 
+import com.hacka.demo.functionalities.LoginFunctionalities;
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +22,7 @@ public class Register {
 	private String email;
 	private String password;
 	private String confirmPassword;
+
 
 	public Register() {
 
@@ -89,10 +93,5 @@ public class Register {
 		return Objects.equals(id, other.id);
 	}
 
-	@Override
-	public String toString() {
-		return "Register [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", confirmPassword=" + confirmPassword + "]";
-	}
 
 }
