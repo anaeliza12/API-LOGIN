@@ -3,11 +3,15 @@ package com.hacka.demo.functionalities;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.hacka.demo.entities.Login;
 import com.hacka.demo.service.LoginService;
 
+@Service
 public class LoginFunctionalities {
+
 
 	@Autowired
 	private LoginService service;

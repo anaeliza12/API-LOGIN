@@ -7,9 +7,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "tb_register")
+@Table(name = "tb_user")
 public class Register {
 	
 	@Id
@@ -18,6 +19,8 @@ public class Register {
 	private String name;
 	private String email;
 	private String password;
+	
+	@Transient
 	private String confirmPassword;
 
 
@@ -65,13 +68,11 @@ public class Register {
 		this.password = password;
 	}
 
+	
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
 
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
 
 	@Override
 	public int hashCode() {

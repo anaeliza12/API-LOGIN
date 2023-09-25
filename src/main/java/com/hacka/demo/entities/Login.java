@@ -1,9 +1,5 @@
 package com.hacka.demo.entities;
 
-import java.util.Objects;
-
-import com.hacka.demo.functionalities.LoginFunctionalities;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,35 +7,24 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_login")
+@Table(name = "tb_user")
 public class Login {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+
 	private String email;
 	private String password;
 	private Boolean isLogged;
-	
-	private LoginFunctionalities functionalities;
 
 	public Login() {
 
 	}
 
-	public Login(Integer id, String email, String password, Boolean isLogged) {
-		this.id = id;
+	public Login(String email, String password, Boolean isLogged) {
 		this.email = email;
 		this.password = password;
 		this.isLogged = isLogged;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getEmail() {
@@ -65,24 +50,5 @@ public class Login {
 	public void setIsLogged(Boolean isLogged) {
 		this.isLogged = isLogged;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Login other = (Login) obj;
-		return Objects.equals(id, other.id);
-	}
-
-
 
 }

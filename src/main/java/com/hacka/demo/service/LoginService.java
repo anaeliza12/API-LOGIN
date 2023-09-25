@@ -22,20 +22,13 @@ public class LoginService {
 		return repository.findById(id).get();
 	}
 
-	public boolean insert(Login login) {
-		if (repository.save(login) == null)
-			return false;
-		else
-			return true;
-
-	}
-
 	public boolean findLogin(Login login) {
 		boolean verify = false;
 		for (Login l : repository.findAll()) {
 			if (l.getEmail().equalsIgnoreCase(login.getEmail())
 					&& l.getPassword().equalsIgnoreCase(login.getPassword())) {
 				verify = true;
+				break;
 			}
 		}
 

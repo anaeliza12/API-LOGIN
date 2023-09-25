@@ -13,9 +13,11 @@ public class MySQLConnection {
 
 	public static Connection getConnection() {
 		Properties props = getProperties();
-		String url = props.getProperty("dburl");
+		String url = props.getProperty("spring.datasource.url");
+		String username = props.getProperty("spring.datasource.username");
+		String password = props.getProperty("spring.datasource.password");
 		try {
-			conn = DriverManager.getConnection(url, props);
+			conn = DriverManager.getConnection(url, username, password);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -26,7 +28,7 @@ public class MySQLConnection {
 
 	private static Properties getProperties() {
 		Properties props = new Properties();
-		try (FileInputStream fs = new FileInputStream("mysql.properties")) {
+		try (FileInputStream fs = new FileInputStream("application-test.properties")) {
 			props.load(fs);
 
 		} catch (IOException e) {

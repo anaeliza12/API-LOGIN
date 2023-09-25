@@ -5,6 +5,7 @@ import java.net.URI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import com.hacka.demo.entities.Register;
 import com.hacka.demo.service.RegisterService;
 
 @RestController
-@RequestMapping(value = "/resgister")
+@RequestMapping(value = "/register")
 public class RegisterResource {
 
 	@Autowired
@@ -23,13 +24,15 @@ public class RegisterResource {
 
 	@PostMapping
 	public ResponseEntity<Register> insert(@RequestBody Register register) {
-		service.insert(register);
+		if (service.insert(register) == false) {
+			return ResponseEntity.notFound().build();
+		}
 		URI uri = ServletUriComponentsBuilder.fromPath("/{id}").buildAndExpand(register.getId()).toUri();
 		return ResponseEntity.created(uri).body(register);
 	}
 
-	@GetMapping
-	public ResponseEntity<Register> findById(@RequestBody Integer id) {
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<Register> findById(@PathVariable Integer id) {
 		Register register = service.findById(id);
 		if (register == null) {
 			return ResponseEntity.notFound().build();
