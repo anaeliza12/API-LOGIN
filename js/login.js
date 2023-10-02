@@ -25,8 +25,11 @@ const login = async () => {
 
         if (response == 200) {
             const log = await connection.text()
-           alert(log)
+            alert(log)
 
+        } else if (response == 404) {
+
+            alert("Login incorreto")
         }
 
     } catch (error) {
