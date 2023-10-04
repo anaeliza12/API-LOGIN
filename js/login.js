@@ -1,5 +1,3 @@
-
-
 const dataEmail = document.getElementById("email")
 const dataPassword = document.getElementById("password")
 
@@ -29,7 +27,7 @@ const login = async () => {
 
         } else if (response == 404) {
 
-            alert("Login incorreto")
+            alert("Login failed. Please check your username and password.")
         }
 
     } catch (error) {
