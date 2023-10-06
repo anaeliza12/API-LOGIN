@@ -15,7 +15,7 @@ public class Login {
 
 	private String email;
 	private String password;
-	private Boolean isLogged;
+
 
 	public Login() {
 
@@ -24,7 +24,7 @@ public class Login {
 	public Login(String email, String password, Boolean isLogged) {
 		this.email = email;
 		this.password = password;
-		this.isLogged = isLogged;
+		
 	}
 
 	public String getEmail() {
@@ -43,12 +43,6 @@ public class Login {
 		this.password = password;
 	}
 
-	public Boolean getIsLogged() {
-		return isLogged;
-	}
-
-	public void setIsLogged(Boolean isLogged) {
-		this.isLogged = isLogged;
-	}
+	
 
 }

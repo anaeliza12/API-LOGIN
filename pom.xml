@@ -53,6 +53,13 @@
 			<artifactId>HikariCP</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.12.1</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

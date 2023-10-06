@@ -4,6 +4,7 @@ import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import com.hacka.demo.entities.Register;
 import com.hacka.demo.service.RegisterService;
 
 @RestController
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 @RequestMapping(value = "/register")
 public class RegisterResource {
 
@@ -23,12 +25,12 @@ public class RegisterResource {
 	private RegisterService service;
 
 	@PostMapping
-	public ResponseEntity<Register> insert(@RequestBody Register register) {
-		if (service.insert(register) == false) {
-			return ResponseEntity.notFound().build();
+	public ResponseEntity<String> insert(@RequestBody Register register) {
+		if (service.insert(register) == true) {
+			URI uri = ServletUriComponentsBuilder.fromPath("/{id}").buildAndExpand(register.getId()).toUri();
+			return ResponseEntity.created(uri).body("Account created successfully.");
 		}
-		URI uri = ServletUriComponentsBuilder.fromPath("/{id}").buildAndExpand(register.getId()).toUri();
-		return ResponseEntity.created(uri).body(register);
+		return ResponseEntity.notFound().build();
 	}
 
 	@GetMapping(value = "/{id}")
