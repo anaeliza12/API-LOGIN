@@ -27,36 +27,89 @@ Send a POST request to http://localhost:8080/login/register and Register object 
 ```json
 {
       "id": "1001",
-      "name": "Maria Brown",
-      "password": "123maria
+      "email": "maria@gmail.com",
+      "name": "Maria da Silva"
 
 }
 
+```
+
+<br>
+
+# Auth architecture
+
+![image](https://github.com/anaeliza12/login/assets/108037430/0d66b4f0-6da5-4097-8f11-516cd3778356)
 
 
+# Technologies used
+## Back end
+- Java
+- Spring Boot
+- JPA / Hibernate
+- MySQL
+## Front end
+- HTML / CSS / JS 
 
-/meu-projeto
+
+```bash
+# clone repository
+git clone https://github.com/anaeliza12/login
+
+```
+
+
+```plaintext
+/apiLogin
 │
 ├── /frontend
-│   ├── /src
-│   │   ├── /components
-│   │   ├── /pages
-│   │   ├── App.js
-│   │   └── index.js
-│   ├── /public
-│   ├── package.json
-│   └── ... (outros arquivos e pastas do front-end)
+│   ├── /boostrap
+│   │   ├── /css
+│   ├── /css
+│   │   ├── style.css
+│   ├── /html
+│   │   ├── recoverPass.html
+│   │   ├── register.html
+│   └── /js
+│   │   ├── login.js
+│   │   ├── register.js
+│   └── login.html
+
 │
 ├── /backend
 │   ├── /src
-│   │   ├── /controllers
-│   │   ├── /models
-│   │   ├── /routes
-│   │   ├── app.js
-│   │   └── server.js
-│   ├── package.json
-│   └── ... (outros arquivos e pastas do back-end)
+│   │   ├── /main
+│   │       ├── /connection
+│   │           ├── MySQLConnection.java
+│   │       ├── /entities
+│   │           ├── Login.java
+│   │           ├── Register.java
+│   │       ├── /functionalities
+│   │           ├── LoginFunctionalities.java
+│   │       ├── /repository
+│   │           ├── LoginRepopsitory.java
+│   │           ├── RegisterRepository.java
+│   │       ├── /resource
+│   │           ├── LoginResource.java
+│   │           ├── RegisterResource.java
+│   │       ├── /service
+│   │           ├── LoginService.java
+│   │           ├── RegisterService.java
+│   │   ├── /test
+│   │       ├── DemoApplicationTests.java
+│   ├── pom.xml
+│   └── bin
+│   └── mvnw
+│   └── application-test.properties
 │
 ├── .gitignore
 ├── README.md
 └── ... (outros arquivos na raiz do projeto)
+```
+
+
+
+# Autor
+
+Ana Eliza 
+
+<a  href="https://www.linkedin.com/in/ana-eliza-perobelli/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
