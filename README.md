@@ -103,7 +103,6 @@ git clone https://github.com/anaeliza12/login
 │
 ├── .gitignore
 ├── README.md
-└── ... (outros arquivos na raiz do projeto)
 ```
 
 
